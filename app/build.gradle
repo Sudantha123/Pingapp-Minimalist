@@ -1,0 +1,41 @@
+plugins {
+id 'com.android.application'
+}
+​android {
+namespace 'com.ping.keepalive'
+compileSdk 34
+​defaultConfig {
+applicationId "com.ping.keepalive"
+minSdk 24
+targetSdk 34
+versionCode 1
+versionName "2.0-NDK"
+​externalNativeBuild {
+cmake {
+cppFlags ""
+// C භාෂාව සඳහා (Pure C)
+cFlags "-std=c99"
+}
+}
+}
+​buildTypes {
+release {
+minifyEnabled true
+proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+}
+}
+​externalNativeBuild {
+cmake {
+path "src/main/cpp/CMakeLists.txt"
+version "3.22.1+"
+}
+}
+​compileOptions {
+sourceCompatibility JavaVersion.VERSION_1_8
+targetCompatibility JavaVersion.VERSION_1_8
+}
+}
+​dependencies {
+// 100% හිස්! කිසිම AndroidX, Kotlin හෝ Material Library එකක් මෙහි නැත.
+// මේ නිසා APK එකේ Size එක 100KB ටත් අඩුවී RAM එක පිරෙන්නේ නැත.
+}
