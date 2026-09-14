@@ -8,7 +8,7 @@
 #include <netdb.h>
 #include <android/log.h>
 #include <time.h>
-#define LOGI(...) __android_log_print(ANDROID_LOG_INFO, "NativeEngine", VA_ARGS)
+#define LOGI(...) __android_log_print(ANDROID_LOG_INFO, "NativeEngine", __VA_ARGS__)
 static int is_running = 0;
 static pthread_t ping_thread;
 static int delay_seconds = 15;
